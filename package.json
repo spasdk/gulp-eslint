@@ -12,7 +12,8 @@
         "jsdoc": "jsdoc --destination doc *.js readme.md"
     },
     "dependencies": {
-        "eslint": "1.*.*",
+        "gulp-cached": "1.*.*",
+        "gulp-eslint": "1.*.*",
         "spa-gulp": "1.*.*"
     },
     "keywords": [

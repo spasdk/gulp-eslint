@@ -112,7 +112,7 @@ Object.keys(config.profiles).forEach(function ( profileName ) {
 
 
     if ( profile.watch ) {
-        gulp.task(watchName, function () {
+        gulp.task(watchName, function ( done ) {
             gulp.watch(profile.sourceMask || [], [checkName]);
         });
 

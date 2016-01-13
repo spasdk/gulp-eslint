@@ -11,9 +11,6 @@ var path = require('path');
 
 // public
 module.exports = {
-    // turn on/off analysis
-    active: true,
-
     // set of named configs for corresponding gulp tasks
     // each profile inherits all options from the "default" profile
     profiles: {

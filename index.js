@@ -9,12 +9,14 @@ var fs       = require('fs'),
     path     = require('path'),
     util     = require('util'),
     gulp     = require('gulp'),
+    exec     = require("child_process").exec,
     cache    = require('gulp-cached'),
     eslint   = require('gulp-eslint'),
     //del      = require('del'),
     tools    = require('spa-gulp/tools'),
     gulpName = 'lint',
     config   = tools.load(path.join(__dirname, 'config'), gulpName),
+    notify   = tools.notify(config.notifications),
     pkgInfo  = require(process.env.PACKAGE),
     outFiles = [],
     buildTasks = [],
@@ -43,9 +45,29 @@ var fs       = require('fs'),
 //    done();
 //}
 
+//tools.popup({
+//    //icon: '64.webpack_yes',
+//    //icon: '128.webpack_yes',
+//    icon: 'ssh_no',
+//    //icon: 'jade_yes',
+//    //icon: 'jade_no',
+//    title: 'eslint task',
+//    //subtitle: 'eslint task subtitle',
+//    message: util.format('\nerrors: %s, warnings: %s:', 1, 2)
+//});
 
-// do not create tasks
-if ( !config.active ) {
+//exec('aplay "/opt/viber/Sound/Dynamic Box Close-01.wav"');
+//exec('aplay /opt/viber/Sound/Messages/Sticker1.wav');
+
+//tools.popup({
+//    title: 'eslint task',
+//    message: util.format('\nerrors: %s, warnings: %s:\n\t%s', 1, 2)
+//});
+
+
+// task set was turned off in gulp.js
+if ( !config ) {
+    // do not create tasks
     return;
 }
 
@@ -106,7 +128,11 @@ Object.keys(config.profiles).forEach(function ( profileName ) {
                 }
             }))
             .pipe(eslint.format(profile.format, function ( result ) {
-                tools.error('lint', result);
+                //tools.error('lint', result);
+                notify.error({
+                    name: gulpName
+
+                });
             }));
     });
 

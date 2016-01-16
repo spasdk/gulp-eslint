@@ -15,12 +15,30 @@ var fs       = require('fs'),
     //del      = require('del'),
     tools    = require('spa-gulp/tools'),
     gulpName = 'lint',
-    config   = tools.load(path.join(__dirname, 'config'), gulpName),
-    notify   = tools.notify(config.notifications),
-    pkgInfo  = require(process.env.PACKAGE),
+    //config   = tools.load(path.join(__dirname, 'config'), gulpName),
+    config   = tools.config(module, gulpName),
+    //notify   = tools.notify(config.notifications),
+    //pkgInfo  = require(process.env.PACKAGE),
     outFiles = [],
     buildTasks = [],
-    cleanTasks = [];
+    cleanTasks = [],
+    tasks = {};
+
+
+tasks[gulpName] = [gulpName + ':check'];
+tasks[gulpName + ':check'] = [];
+tasks[gulpName + ':watch'] = [];
+//tasks.build = [gulpName + ':build'];
+//tasks.watch = [gulpName + ':watch'];
+//tasks.clean = [gulpName + ':clean'];
+
+// public
+module.exports = tasks;
+
+//console.log('lintConfig');
+//console.log(config);
+
+return;
 
 
 //function compile ( profile, done ) {

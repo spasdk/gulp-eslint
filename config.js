@@ -24,10 +24,6 @@ module.exports = extend(true, {}, config, {
 
         // apply some visualization to the lint results
         // available formatters - https://github.com/eslint/eslint/tree/master/lib/formatters
-        format: 'stylish',
-
-        // create watch task
-        // to automatically rebuild on source files change
-        watch: false
+        format: 'stylish'
     }
 });

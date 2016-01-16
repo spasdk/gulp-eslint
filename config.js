@@ -7,17 +7,19 @@
 
 'use strict';
 
-var path = require('path');
+var path   = require('path'),
+    extend = require('extend'),
+    config = require('spa-gulp/config');
 
-// set of named configs for corresponding gulp tasks
+
+// base config
 // each profile inherits all options from the "default" profile
-module.exports = {
+module.exports = extend(true, {}, config, {
     default: {
         // glob or an array of globs of files to process
         // see format in https://github.com/isaacs/node-glob
         sourceMask: [
-            path.join(process.env.PATH_SRC, 'js', '**', '*.js'),
-            path.join(process.env.PATH_CFG, '**', '*.js')
+            path.join(config.default.sourcePath, 'js', '**', '*.js')
         ],
 
         // apply some visualization to the lint results
@@ -28,4 +30,4 @@ module.exports = {
         // to automatically rebuild on source files change
         watch: false
     }
-};
+});

@@ -16,14 +16,20 @@ var path   = require('path'),
 // each profile inherits all options from the "default" profile
 module.exports = extend(true, {}, config, {
     default: {
-        // glob or an array of globs of files to process
+        // array of globs of files to process
         // see format in https://github.com/isaacs/node-glob
-        sourceMask: [
+        sourcePath: [
             path.join(config.default.sourcePath, 'js', '**', '*.js')
         ],
 
         // apply some visualization to the lint results
         // available formatters - https://github.com/eslint/eslint/tree/master/lib/formatters
-        format: 'stylish'
+        format: 'stylish',
+
+        // false to prevent watch task creation
+        // otherwise array of globs to monitor
+        watch: [
+            path.join(config.default.sourcePath, 'js', '**', '*.js')
+        ]
     }
 });

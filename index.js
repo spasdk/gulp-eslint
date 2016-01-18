@@ -10,13 +10,13 @@ var util   = require('util'),
     cache  = require('gulp-cached'),
     eslint = require('gulp-eslint'),
     Plugin = require('spa-gulp/lib/plugin'),
-    plugin = new Plugin({name: 'lint', entry: 'check', context: module});
+    plugin = new Plugin({name: 'eslint', entry: 'lint', context: module});
 
 
 // create tasks for profiles
 plugin.profiles.forEach(function ( profile ) {
-    // check + watch
-    profile.watch(profile.task('check', function () {
+    // lint + watch
+    profile.watch(profile.task('lint', function () {
         var files = [];
 
         return gulp
@@ -36,7 +36,7 @@ plugin.profiles.forEach(function ( profile ) {
                 // success message
                 if ( files.length === 0 ) {
                     profile.notify({
-                        title: 'check',
+                        title: 'lint',
                         message: 'no problems found'
                     });
                 }
@@ -46,7 +46,7 @@ plugin.profiles.forEach(function ( profile ) {
                 profile.notify({
                     type: 'fail',
                     info: result,
-                    title: 'check',
+                    title: 'lint',
                     message: files
                 });
             }));

@@ -20,7 +20,7 @@ plugin.profiles.forEach(function ( profile ) {
         var files = [];
 
         return gulp
-            .src(profile.data.sourceFile || [])
+            .src(profile.data.source || [])
             .pipe(cache('eslint'))
             .pipe(eslint())
             .pipe(eslint.results(function ( results ) {

@@ -18,8 +18,8 @@ module.exports = extend(true, {}, config, {
     default: {
         // array of file globs to process
         // see format in https://github.com/isaacs/node-glob
-        sourceFile: [
-            path.join(config.default.sourcePath, 'js', '**', '*.js')
+        source: [
+            path.join(config.default.source, 'js', '**', '*.js')
         ],
 
         // apply some visualization to the lint results
@@ -44,7 +44,7 @@ module.exports = extend(true, {}, config, {
         // false to prevent watch task creation
         // otherwise array of globs to monitor
         watch: [
-            path.join(config.default.sourcePath, 'js', '**', '*.js')
+            path.join(config.default.source, 'js', '**', '*.js')
         ]
     }
 });

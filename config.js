@@ -26,6 +26,21 @@ module.exports = extend(true, {}, config, {
         // available formatters - https://github.com/eslint/eslint/tree/master/lib/formatters
         format: 'stylish',
 
+        // info channels
+        notifications: {
+            popup: {
+                info: {
+                    icon: path.join(__dirname, 'media', 'info.png')
+                },
+                warn: {
+                    icon: path.join(__dirname, 'media', 'warn.png')
+                },
+                fail: {
+                    icon: path.join(__dirname, 'media', 'fail.png')
+                }
+            }
+        },
+
         // false to prevent watch task creation
         // otherwise array of globs to monitor
         watch: [

@@ -16,7 +16,7 @@ var util   = require('util'),
 // create tasks for profiles
 plugin.profiles.forEach(function ( profile ) {
     // lint + watch
-    profile.watch(profile.task('lint', function () {
+    profile.watch(profile.task(plugin.entry, function () {
         var files = [];
 
         return gulp
@@ -36,7 +36,7 @@ plugin.profiles.forEach(function ( profile ) {
                 // success message
                 if ( files.length === 0 ) {
                     profile.notify({
-                        title: 'lint',
+                        title: plugin.entry,
                         message: 'no problems found'
                     });
                 }
@@ -46,7 +46,7 @@ plugin.profiles.forEach(function ( profile ) {
                 profile.notify({
                     type: 'fail',
                     info: result,
-                    title: 'lint',
+                    title: plugin.entry,
                     message: files
                 });
             }));

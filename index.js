@@ -20,11 +20,11 @@ plugin.profiles.forEach(function ( profile ) {
         var files = [];
 
         return gulp
-            .src(profile.data.sourcePath || [])
+            .src(profile.data.sourceFile || [])
             .pipe(cache('eslint'))
             .pipe(eslint())
             .pipe(eslint.results(function ( results ) {
-                // collect all problematic file names
+                // collect all problematic files
                 results.forEach(function ( result ) {
                     if ( result.errorCount || result.warningCount ) {
                         files.push(util.format('%s %s/%s',

@@ -16,9 +16,9 @@ var path   = require('path'),
 // each profile inherits all options from the "default" profile
 module.exports = extend(true, {}, config, {
     default: {
-        // array of globs of files to process
+        // array of file globs to process
         // see format in https://github.com/isaacs/node-glob
-        sourcePath: [
+        sourceFile: [
             path.join(config.default.sourcePath, 'js', '**', '*.js')
         ],
 

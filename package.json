@@ -1,12 +1,12 @@
 {
-    "name": "spa-gulp-eslint",
+    "name": "spa-plugin-eslint",
     "version": "1.3.0",
     "description": "Analyse JavaScript code for errors and potential problems.",
     "author": {
         "name": "Stanislav Kalashnik",
         "email": "darkpark.main@gmail.com"
     },
-    "repository": "spasdk/gulp-eslint",
+    "repository": "spasdk/plugin-eslint",
     "scripts": {
         "lint": "eslint *.js",
         "jsdoc": "jsdoc --destination doc *.js readme.md"

@@ -9,8 +9,8 @@ var util   = require('util'),
     gulp   = require('gulp'),
     cache  = require('gulp-cached'),
     eslint = require('gulp-eslint'),
-    Plugin = require('spa-gulp/lib/plugin'),
-    plugin = new Plugin({name: 'eslint', entry: 'lint', context: module});
+    Plugin = require('spasdk/lib/plugin'),
+    plugin = new Plugin({name: 'eslint', entry: 'lint', config: require('./config')});
 
 
 // create tasks for profiles

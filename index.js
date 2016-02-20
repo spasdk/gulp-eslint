@@ -38,7 +38,7 @@ plugin.profiles.forEach(function ( profile ) {
                     if ( files.length === 0 ) {
                         profile.notify({
                             title: plugin.entry,
-                            message: 'no problems found'
+                            info: 'no problems found'
                         });
                     }
                 }))

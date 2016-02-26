@@ -20,9 +20,8 @@
         "spa",
         "spasdk",
         "framework",
-        "gulp",
         "develop",
-        "task",
+        "plugin",
         "lint"
     ],
     "license": "GPL-3.0"

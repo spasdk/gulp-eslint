@@ -7,7 +7,7 @@
 
 var path     = require('path'),
     extend   = require('extend'),
-    config   = require('spasdk/config'),
+    config   = require('spa-plugin/config'),
     source   = [path.join(config.source, 'js', '**', '*.js')],
     profiles = {};
 

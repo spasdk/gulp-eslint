@@ -13,8 +13,6 @@
     },
     "dependencies": {
         "extend": "3.*.*",
-        "gulp-cached": "1.*.*",
-        "gulp-eslint": "2.*.*",
         "spa-plugin": "spasdk/plugin"
     },
     "devDependencies": {

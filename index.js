@@ -37,8 +37,8 @@ plugin.profiles.forEach(function ( profile ) {
                     // success message
                     if ( files.length === 0 ) {
                         profile.notify({
-                            title: plugin.entry,
-                            info: 'no problems found'
+                            info: 'no problems found',
+                            tags: [self.entry]
                         });
                     }
                 }))
@@ -47,8 +47,8 @@ plugin.profiles.forEach(function ( profile ) {
                     profile.notify({
                         type: 'fail',
                         info: result,
-                        title: plugin.entry,
-                        message: files
+                        data: files,
+                        tags: [self.entry]
                     });
                 }));
         })
